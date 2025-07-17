@@ -10,6 +10,7 @@ Esta carpeta contiene la documentación completa del sistema **LTI (Talent Track
 - **[Estructura del Proyecto](./estructura-proyecto.md)** - Organización de carpetas y archivos del proyecto
 - **[Tecnologías Utilizadas](./tecnologias.md)** - Stack tecnológico y dependencias del proyecto
 - **[Arquitectura del Sistema](./arquitectura.md)** - Diseño arquitectónico del backend y frontend
+- **[Prompt Interfaz Kanban](./prompt-kanban-interface.md)** - Prompt especializado para desarrollo de interfaz kanban
 
 ### Información Adicional
 

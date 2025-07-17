@@ -1,0 +1,272 @@
+/* ==============================================
+   ESTILOS KANBAN - GESTIÓN DE CANDIDATOS
+   ============================================== */
+
+/* Contenedor principal del kanban */
+.position-kanban {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Header de posición */
+.position-header {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.position-header .btn:hover {
+  transform: translateX(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* Tablero kanban */
+.kanban-board {
+  padding: 0 15px;
+}
+
+/* Columnas kanban */
+.kanban-column .card {
+  transition: all 0.2s ease;
+  border: 1px solid #e9ecef;
+}
+
+.kanban-column .card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08) !important;
+}
+
+/* Headers de columna */
+.kanban-column .card-header {
+  border-bottom: 2px solid #e9ecef;
+  transition: all 0.2s ease;
+}
+
+.kanban-column .card-header.border-primary {
+  border-bottom-color: #0d6efd !important;
+}
+
+/* Drop zone */
+.kanban-drop-zone {
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.kanban-drop-zone.drop-zone-active {
+  background-color: rgba(13, 110, 253, 0.05) !important;
+}
+
+/* Indicador de drop */
+.drop-indicator {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Estado vacío de columna */
+.empty-column {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.kanban-column:hover .empty-column {
+  opacity: 1;
+}
+
+/* Tarjetas de candidato */
+.candidate-card {
+  transition: all 0.2s ease;
+  border: 1px solid #e9ecef;
+  cursor: grab;
+}
+
+.candidate-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12) !important;
+  transform: translateY(-1px);
+}
+
+.candidate-card:active,
+.candidate-card.dragging {
+  cursor: grabbing;
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+  z-index: 1000;
+}
+
+.candidate-card.updating {
+  opacity: 0.8;
+  cursor: wait;
+}
+
+.candidate-card.updating:hover {
+  transform: none;
+}
+
+/* Avatar de candidato */
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Badge de puntuación */
+.candidate-card .badge {
+  font-size: 0.7rem;
+  padding: 0.25em 0.5em;
+  gap: 0.25rem;
+}
+
+/* Estadísticas del kanban */
+.kanban-stats .card {
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Loading states */
+.kanban-board-loading .card {
+  background: #f8f9fa;
+}
+
+.placeholder-glow .placeholder {
+  animation: placeholder-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .kanban-board {
+    padding: 0 10px;
+  }
+  
+  .kanban-column {
+    margin-bottom: 1rem;
+  }
+  
+  .kanban-column .card {
+    margin-bottom: 0.5rem;
+  }
+  
+  .position-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .candidate-card .card-body {
+    padding: 0.75rem;
+  }
+  
+  .avatar-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  
+  .kanban-stats {
+    margin-top: 1rem;
+  }
+  
+  .kanban-stats .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .position-header .container-fluid {
+    padding: 0 10px;
+  }
+  
+  .position-header h1 {
+    font-size: 1.1rem;
+  }
+  
+  .position-header p {
+    display: none;
+  }
+  
+  .kanban-column .card-header h6 {
+    font-size: 0.9rem;
+  }
+  
+  .candidate-card h6 {
+    font-size: 0.9rem;
+  }
+  
+  .drop-indicator .border {
+    padding: 1rem;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.candidate-card {
+  animation: slideInUp 0.3s ease-out;
+}
+
+/* Dark mode support (opcional) */
+@media (prefers-color-scheme: dark) {
+  .position-kanban {
+    background-color: #1a1a1a;
+  }
+  
+  .position-header {
+    background: #2d2d2d;
+    color: #fff;
+  }
+  
+  .kanban-column .card {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #fff;
+  }
+  
+  .candidate-card {
+    background: #3d3d3d;
+    border-color: #505050;
+    color: #fff;
+  }
+}
+
+/* Focus states para accesibilidad */
+.candidate-card:focus {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Print styles */
+@media print {
+  .position-header button {
+    display: none;
+  }
+  
+  .kanban-board {
+    display: block;
+  }
+  
+  .kanban-column {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  
+  .candidate-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+} 
